@@ -1,3 +1,4 @@
+
 function init(){
     let data =localStorage.getItem('rowValue');
     employeeData = data ? JSON.parse(data):"nothing";
@@ -35,6 +36,12 @@ let employeeIndex = null;
 
 
 function updateEmployee(e){
+  let datas= localStorage.getItem('employees');
+  const employees = JSON.parse(datas);
+  let datass= localStorage.getItem('rowValue');
+  const employed= JSON.parse(datass);
+  const val =employed.ind
+
     
     event.preventDefault();
         let employee = {
@@ -46,11 +53,17 @@ function updateEmployee(e){
         role: roleElem.value,
        
       }
+      employees[val].name = employee.name
+      employees[val].number = employee.number
+      employees[val].email = employee.email,
+      employees[val].address = employee.address,
+      employees[val].city =employee.city,
+      employees[val].role = employee.role,
       
       
-    employees.push(employee);
+    
   
-      employees[employeeIndex] = employee;
+      
       localStorage.setItem('employees',JSON.stringify(employees))
     //   let selectedRow = document.querySelector('[index="'+employeeIndex+'"]')
   
